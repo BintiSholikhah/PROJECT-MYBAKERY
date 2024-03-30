@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DAFTAR AKUN</title>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="awesome/css/styleRegister.css">
+    <link rel="stylesheet" type="text/css" href="awesome/css/all.min.css">
+</head>
+<body>
+<div class = "container my-4">    
+    <div id="loginbox" style="margin-top:50px;" class="mainbox col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">                    
+        <div class="panel panel-info" >
+            <div class="panel-heading">
+                <h3 class="text-judul">Daftar Akun</h3>
+            </div>
+            <div style="padding-top:30px" class="panel-body" >
+
+            <div class="container">
+                <form method="POST" action="prosesregister.php">
+                    <div class="row mt-3">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">Nama Lengkap</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user-pen"></i></span>
+                                    <script type="text/javascript">
+                                         function validasiNama(input) {
+                                        // Dapatkan nilai input nama
+                                        var nama = input.value;
+
+                                        // Gunakan ekspresi reguler untuk memeriksa apakah hanya terdiri dari huruf
+                                        var validasiNamaRegex = /^[a-zA-Z\s]*$/;
+
+                                        // Periksa apakah nama valid
+                                        if (validasiNamaRegex.test(nama)) {
+                                            // Nama valid
+                                            input.setCustomValidity('');
+                                        } else {
+                                            // Nama tidak valid, atur pesan kustom untuk ditampilkan
+                                            input.setCustomValidity('Nama hanya boleh mengandung huruf dan spasi.');
+                                        }
+                                    }     
+                                    </script>
+                                    <input type="text" class="form-control" id="nama" name="nama" placeholder="Nama Lengkap" oninput="validasiNama(this)" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label class="form-label">E-mail</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-envelope"></i></span>
+                                    <script type="text/javascript">
+                                        //validasi email          
+                                        function validasiEmail(input) {
+                                            // Dapatkan nilai input email
+                                            var email = input.value;
+
+                                            // Gunakan ekspresi reguler untuk memeriksa validitas email
+                                            var validasiEmailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+                                            // Periksa apakah email valid
+                                            if (validasiEmailRegex.test(email)) {
+                                                // Email valid
+                                                input.setCustomValidity('');
+                                            } else {
+                                                // Email tidak valid, atur pesan kustom untuk ditampilkan
+                                                input.setCustomValidity('Masukkan alamat email yang valid.');
+                                            }
+                                          }
+                                    </script>
+                                    <input type="text" class="form-control" id="email" name="email" placeholder="E-mail" oninput="validasiEmail(this)" required >
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-12 mt-4">
+                            <div class="mb-3">
+                                <label class="form-label">Alamat</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-unlock"></i></span>
+                                    <input type="text" class="form-control" id="alamat" name="alamat" placeholder="Isi dengan Lengkap. Ex: Tarungan Panjangrejo Pundong Bantul DIY" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="mb-3">
+                                <label class="form-label">No Handphone</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-phone"></i></span>
+                                    <script type="text/javascript">
+                                            function validasiNomorTelepon(input) {
+                                            // Dapatkan nilai input NIM
+                                            var telepon = input.value;
+
+                                            // Gunakan ekspresi reguler untuk memeriksa apakah hanya terdiri dari angka
+                                            var validasiTeleponRegex = /^\d+$/;
+
+                                            // Periksa apakah NIM valid dan memiliki panjang minimal 10 digit
+                                            if (validasiTeleponRegex.test(telepon) && telepon.length >= 10) {
+                                                // NIM valid
+                                                input.setCustomValidity('');
+                                            } else {
+                                                // NIM tidak valid, atur pesan kustom untuk ditampilkan
+                                                input.setCustomValidity('No Telepon harus terdiri dari angka dan memiliki panjang minimal 10 digit.');
+                                            }
+                                        }
+                                    </script>
+                                    <input type="text" class="form-control" id="telepon" name="telepon" placeholder="No Handphone" oninput="validasiNomorTelepon(this)" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="mb-3">
+                                <label class="form-label">Username</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-user"></i></span>
+                                    <script type="text/javascript">
+                                        function validateUsername() {
+                                          var username = document.getElementById('username').value;
+                                          var xmlhttp = new XMLHttpRequest();
+
+                                          xmlhttp.onreadystatechange = function() {
+                                            if (this.readyState == 4 && this.status == 200) {
+                                              document.getElementById('usernameError').innerHTML = this.responseText;
+                                            }
+                                          };
+
+                                          xmlhttp.open("GET", "check_username.php?username=" + username, true);
+                                          xmlhttp.send();
+                                        }
+                                    </script>
+                                  <input type="text" class="form-control" id="username" name="username" placeholder="Username" onblur="validateUsername()" required>
+                                  <span id="usernameError" class="error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="mb-3">
+                                <label class="form-label">Password</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-key"></i></span>
+                                    <script type="text/javascript">
+                                        // validasi password
+                                        function validasiPassword(input) {
+                                            var password = input.value;
+                                            // Check panjang password
+                                            if (strlen(password) >= 8 && strlen(password) <= 10) {
+                                                // Check apakah password terdiri dari angka, string, atau karakter non-alphabet
+                                                if (preg_match('/^[0-9a-zA-Z!@#$%^&*()_+{}|:<>?~-]+$/', $password)) {
+                                                    echo "Password valid!";
+                                                } else {
+                                                    echo "Password harus terdiri dari angka, string, atau karakter non-alphabet.";
+                                                }
+                                            } else {
+                                                echo "Panjang password harus antara 8 sampai 10 karakter.";
+                                            }
+                                        }
+                                    </script>
+                                    <input type="text" class="form-control" id="password" name="password" placeholder="Password" oninput="validasiPassword(this)" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 mt-4">
+                            <div class="mb-3">
+                                <label class="form-label">Ulangi Password</label>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class="fa-solid fa-unlock"></i></span>
+                                    <script>
+                                        function validatePassword() {
+                                          var password = document.getElementById('password').value;
+                                          var confirmPassword = document.getElementById('ulangipassword').value;
+                                          var passwordError = document.getElementById('passwordError');
+
+                                          if (password !== confirmPassword) {
+                                            passwordError.innerHTML = 'Password dan Ulangi Password harus sama';
+                                            return false;
+                                          } else {
+                                            passwordError.innerHTML = '';
+                                            return true;
+                                          }
+                                        }
+                                    </script>
+                                    <input type="text" class="form-control" id="ulangipassword" name="ulangipassword" placeholder="Ulangi Password" required>
+                                    <span id="passwordError" class="error"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="row mt-4" >
+                                <div class="col-md-6 d-grid">
+                                    <button type="reset" class="btn btn-danger">Hapus Data</button>    
+                                </div>
+                                <div class="col-md-6 d-grid">
+                                    <button type="submit" class="btn btn-primary" name="submit">Daftar</button>    
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mt-4">
+                            <label>Sudah Punya Akun? <a href="login-backup.php">Login disini</a></label>
+                        </div>
+                </div>
+                </form>
+            </div>               
+        </div>  
+    </div>
+</div>
+</body>
+</html>
